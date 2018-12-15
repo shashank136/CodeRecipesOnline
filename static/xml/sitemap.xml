@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/about</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/algorithms</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/data_structures</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/algorithms/insertion_sort</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/algorithms/merge_sort</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/algorithms/bubble_sort</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/algorithms/heap_sort</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/algorithms/quick_sort</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/algorithms/bucket_sort</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/algorithms/counting_sort</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/data_structures/stacks</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://coderecipesonline.pythonanywhere.com/algo_ds/data_structures/queues</loc>
+  <lastmod>2018-01-03T08:08:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+</urlset>

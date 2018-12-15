@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1 style="font-size:35px;">Alogorithms &amp; Datastructure</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>What is an alogrithm?</h2>
+<p>An algorithm is any well-defined computational procedures that takes some value, or set of values, as input and produce some value, or set of values,as output.An algorithm is thus a sequence of computational steps that transforms the input into the output.</p>
+<p>We shall understand various <a href="{{url_for('algorithms')}}">algorithms</a>.</p>
+<ul>
+	<li><a href="{{url_for('.algorithms', _anchor='table_algorithms')}}">Sorting Algorithms</a></li>
+	<li><a href="{{url_for('.algorithms', _anchor='table_algorithms')}}">Dynamic Programming</a></li>
+	<li><a href="{{url_for('.algorithms', _anchor='table_algorithms')}}">Greedy Technique</a></li>
+</ul>
+<br>
+<h2>What are data structures?</h2>
+<p>A data structutre is a way to store and organize data in order to facilitate access and modifications.No single data structure works well for all the purpose, and so it is important to know the strengths and limitations of several of them.</p>
+<p>We shall understand various <a href="{{url_for('ds')}}">data structures</a> and there pros and cons.</p>
+<ul>
+	<li><a href="{{url_for('.ds', _anchor='table_ds')}}">Stacks</a></li>
+	<li><a href="{{url_for('.ds', _anchor='table_ds')}}">Queues</a></li>
+	<li><a href="{{url_for('.ds', _anchor='table_ds')}}">Binary Trees</a></li>
+	<li><a href="{{url_for('.ds', _anchor='table_ds')}}">Hsah Tables</a></li>
+</ul>
+<h3>We shall also see various <a href="{{url_for('.ds', _anchor='table_ds')}}">java collections</a> API.</h3>
+{% endblock %}

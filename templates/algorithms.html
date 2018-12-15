@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1>Algorithms &amp; Techniques</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>What is an alogrithm?</h2>
+<p>An algorithm is any well-defined computational procedures that takes some value, or set of values, as input and produce some value, or set of values,as output.An algorithm is thus a sequence of computational steps that transforms the input into the output.</p><br>
+<h3>Applications of Algorithms</h3>
+<p>We can use algorithms to solve various types of real world problems. Following are some examples:</p>
+<ul>
+	<li><p>The Human Genome Project has the goals of identifying all the 100,000 genes in human DNA, determining the sequences of the 3 billion chemical base pairs that make up human DNA, storing this information in databases, and developing tools for data analysis.</p></li>
+	<li><p>The Internet enables people all around the world to quickly access and retrieve large amounts of information. In order to do so, clever algorithms are employed to manage and manipulate this large volume of data.</p></li>
+	<li><p>Electronic commerce enables goods and services to be negotiated and exchanged electronically. The ability to keep information such as credit card numbers, passwords, and bank statements private is essential if electronic commerce is to be used widely.</p></li>
+</ul>
+This is list is far from exhaustive.
+<br><br>
+<h2>Table of Contents</h2>
+<section id="table_algorithms">
+<div class="table_content">
+<ol>
+	<li><a href="#">Sorting Algorithms</a>
+		<ul>
+			<li><a href="{{url_for('insertion')}}">Insertion Sort</a></li>
+			<li><a href="{{url_for('merge')}}">Merge Sort</a></li>
+			<li><a href="{{url_for('bubble')}}">Bubble Sort</a></li>
+			<li><a href="{{url_for('heap')}}">Heap Sort</a></li>
+			<li><a href="{{url_for('quick')}}">Quick Sort</a></li>
+			<li><a href="{{url_for('bucket')}}">Bucket Sort</a></li>
+			<li><a href="{{url_for('count')}}">Counting Sort</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Dynamic Programming</a>
+		<ul>
+			<li><a href="#">Longest Common Subsequence problem</a></li>
+			<li><a href="#">Longest Increasing Subsequence problem</a></li>
+			<li><a href="#">Minimum Edit Distance problem</a></li>
+			<li><a href="#">Coin change problem</a></li>
+			<li><a href="#">0-1 Knapsack problem</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Greedy Technique</a>
+		<ul>
+			<li><a href="#">Job sequencing problem</a></li>
+			<li><a href="#">Fractional Kanpsacp</a></li>
+			<li><a href="#">Prim's Minimum Spannig Tree</a></li>
+			<li><a href="#">Kruskal's Algorithm for Minimum Spanning Tree</a></li>
+		</ul>
+	</li>
+</ol>
+</div>
+</section>
+<br>
+<h2>Suggested readings and courses:</h3>
+<h3>Books:</h3>
+<ul>
+	<li><a href="https://www.amazon.in/Introduction-Algorithms-3Ed-International-Cormen/dp/0262533057/ref=sr_1_3?ie=UTF8&qid=1514056576&sr=8-3&keywords=introduction+to+algorithms">Introduction to Algorithms</a> by Thomas H.Cormen, Charles E.Leiserson, Ronald L.Rivest and Clifford Stein</li>
+	<li><a href="https://www.amazon.in/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/ref=sr_1_1?s=books&ie=UTF8&qid=1514056666&sr=1-1&keywords=cracking+the+coding+interview">Cracking the coding Interview</a> by Gayle Laakmann</li>
+</ul>
+<h3>Courses:</h3>
+<ul>
+	<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011">MIT 6.006</a>  Introduction to algorithms, Fall 2011</li>
+	<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015">MIT 6.046J</a> Design and Analysis of Algorithms</li>
+	<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012">MIT 6.851</a>  Advanced Data Structures, Spring 2012</li>
+</ul>
+{% endblock %}

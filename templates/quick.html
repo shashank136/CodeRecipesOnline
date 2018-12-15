@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1>Quick Sort</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>What is quick sort?</h2>
+<p>TQuicksort is a sorting algorithm whose worst-case running time is O(n2) on an input array of n numbers. In spite of this slow worst-case running time, quicksort is often the best practical choice for sorting because it is remarkably efficient on the average: its expected running time is O(n lg n), and the constant factors hidden in the O(n lg n) notation are quite small.</p>
+<img style="width:400; height:800;" src="https://upload.wikimedia.org/wikipedia/commons/a/af/Quicksort-diagram.svg">
+<br>
+<h3>Python code for quick sort</h3>
+<pre class="prettyprint linenums">
+	class Quicksort(object):
+		"""
+		Quicksort is an in-place sorting algorithm
+		time complexity of quick sort is O(nlogn)
+		space complexity of quick sort is O(logn)
+		"""
+		def partition(self,a,start,end):
+			pivot = a[end]
+			pi = start-1
+			for i in range(start,end):
+				if a[i] <= pivot:
+					pi += 1
+					(a[i],a[pi])=(a[pi],a[i])
+
+			(a[end],a[pi+1])=(a[pi+1],a[end])
+			return pi+1
+
+		def quicksort(self,a,start,end):
+			if start < end:
+				index = self.partition(a,start,end)
+				self.quicksort(a,start,index-1)
+				self.quicksort(a,index+1,end)
+
+		def printList(self,a):
+			return a
+
+		def __init__(self):
+			n = int(input("enter the size of list: "))
+			l = []
+			for i in range(n):
+				l.append(int(input("enter the number: ")))
+			self.quicksort(l,0,n-1)
+			print(self.printList(l))
+
+	a = Quicksort()
+</pre>
+<h3>Java code for quick sort</h3>
+<pre class="prettyprint linenums">
+	import java.util.*;
+	import java.io.*;
+
+	public class quick_sort
+	{
+
+	    public static int partition(int arr[], int low, int high)
+	    {
+	        int pivot = arr[high];
+	        int i = (low - 1); // index of smaller element
+	        for (int j = low; j < high; j++)
+	        {
+	            // If current element is smaller than or
+	            // equal to pivot
+	            if (arr[j] <= pivot)
+	            {
+	                i++;
+
+	                // swap arr[i] and arr[j]
+	                int temp = arr[i];
+	                arr[i] = arr[j];
+	                arr[j] = temp;
+	            }
+	        }
+
+	        // swap arr[i+1] and arr[high] (or pivot)
+	        int temp = arr[i + 1];
+	        arr[i + 1] = arr[high];
+	        arr[high] = temp;
+
+	        return i + 1;
+	    }
+
+	    public static void quicksort(int a[], int start, int end)
+	    {
+	        if(start < end)
+	        {
+	            int index = partition(a, start, end);
+	            quicksort(a, start, index - 1);
+	            quicksort(a, index + 1, end);
+	        }
+	    }
+
+	    public static void main(String[] args)
+	    {
+	        Scanner sc = new Scanner(System.in);
+	        int size, i;
+
+	        size = sc.nextInt();
+	        int a[] = new int[size];
+
+	        for(i = 0; i < size; i++)
+	            a[i] = sc.nextInt();
+
+	        quicksort(a, 0, size - 1);
+
+	        for (i = 0; i < size; i++)
+	            System.out.print(a[i] + " ");
+	    }
+	}
+</pre>
+<h3>C++ code for quick sort</h3>
+<pre class="prettyprint linenums">
+	#include<iostream>
+	using namespace std;
+
+	int partition(int a[], int p, int r){
+		// p=0, r=7, x=4, i=-1(initially), j=0
+		int x = a[r];
+		int i = p-1;
+		for(int j=p; j< r; j++){
+			if(a[j]<=x){
+				i++;
+				swap(a[i],a[j]);
+			}
+		}
+		swap(a[i+1],a[r]);
+		return i+1;
+	}
+
+	void quicksort(int a[], int start, int end){
+		if(start< end){
+			int index = partition(a,start,end);
+			quicksort(a,start,index-1);
+			quicksort(a,index+1,end);
+		}
+	}
+
+	int main(){
+		int a[] = {13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21};
+		int n = sizeof(a)/sizeof(a[0]);
+
+		quicksort(a,0,n-1);
+
+		for(int i=0; i< n; i++)
+			cout<< a[i]<<" ";
+
+		return 0;
+	}
+</pre>
+<h3>Code Virtualization</h3>
+<iframe style=" width:100%; height:600px;" frameborder="1" src="http://pythontutor.com/iframe-embed.html#code=class%20Quicksort%28object%29%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Quicksort%20is%20an%20in-place%20sorting%20algorithm%0A%20%20%20%20time%20complexity%20of%20quick%20sort%20is%20O%28nlogn%29%0A%20%20%20%20space%20complexity%20of%20quick%20sort%20is%20O%28logn%29%0A%20%20%20%20%22%22%22%0A%20%20%20%20def%20partition%28self,a,start,end%29%3A%0A%20%20%20%20%20%20%20%20pivot%20%3D%20a%5Bend%5D%0A%20%20%20%20%20%20%20%20pi%20%3D%20start-1%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28start,end%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20a%5Bi%5D%20%3C%3D%20pivot%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pi%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%28a%5Bi%5D,a%5Bpi%5D%29%3D%28a%5Bpi%5D,a%5Bi%5D%29%0A%0A%20%20%20%20%20%20%20%20%28a%5Bend%5D,a%5Bpi%2B1%5D%29%3D%28a%5Bpi%2B1%5D,a%5Bend%5D%29%0A%20%20%20%20%20%20%20%20return%20pi%2B1%0A%0A%20%20%20%20def%20quicksort%28self,a,start,end%29%3A%0A%20%20%20%20%20%20%20%20if%20start%20%3C%20end%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20index%20%3D%20self.partition%28a,start,end%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.quicksort%28a,start,index-1%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.quicksort%28a,index%2B1,end%29%0A%0A%20%20%20%20def%20printList%28self,a%29%3A%0A%20%20%20%20%20%20%20%20return%20a%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20n%20%3D%2012%0A%20%20%20%20%20%20%20%20l%20%3D%20%5B13,%2019,%209,%205,%2012,%208,%207,%204,%2011,%202,%206,%2021%5D%0A%20%20%20%20%20%20%20%20self.quicksort%28l,0,n-1%29%0A%20%20%20%20%20%20%20%20print%28self.printList%28l%29%29%0A%0Aa%20%3D%20Quicksort%28%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=9&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+{% endblock %}

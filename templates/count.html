@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1>Counting Sort</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>What is counting sort?</h2>
+<p>counting sort is an algorithm for sorting a collection of objects according to keys that are small integers; that is, it is an integer sorting algorithm. It operates by counting the number of objects that have each distinct key value, and using arithmetic on those counts to determine the positions of each key value in the output sequence. Its running time is linear in the number of items and the difference between the maximum and minimum key values, so it is only suitable for direct use in situations where the variation in keys is not significantly greater than the number of items.</p>
+<p>Because counting sort uses key values as indexes into an array, it is not a comparison sort, and the Ω(n log n) lower bound for comparison sorting does not apply to it.</p>
+<br>
+<h3>Python code for counting sort</h3>
+<pre class="prettyprint linenums">
+	class counting_sort(object):
+	    """
+	    time complexity of counting sort is O(n+k)
+	    sapce complexity of counting sort is O(k)
+	    """
+	    def countingsort(self,a,size,k):
+	        c = [] # stores the number of occurance of an element in array
+	        b = [] # output array
+
+	        # initializing array c
+	        for i in range(k):
+	            c.append(0)
+
+	        for i in range(size):
+	            b.append(0)
+
+	        # storing the frequency of each element in array a into c.
+	        for i in range(1,size):
+	            c[a[i]] = c[a[i]] + 1
+
+	        # storing the rank for each element
+	        for i in range(1,k):
+	            c[i] += c[i-1]
+
+	        # updating the array b with sorted list of the elements
+	        for j in range(size-1,0,-1):
+	            b[c[a[j]]] = a[j]
+	            c[a[j]] = c[a[j]]-1
+
+	        # print the output array
+	        print("list after sorting is: ",b[1:])
+
+
+	    def __init__(self):
+	        k = 5
+	        a=[0,5,0,2,1,5,2,1,5,1,4]
+	        print("list to be sorted is: ",a[1:])
+	        self.countingsort(a,len(a),k+1)
+
+	c = counting_sort()
+</pre>
+<h3>C++ code for counting sort</h3>
+<pre class="prettyprint linenums">
+	#include<iostream>
+	using namespace std;
+
+	void countingsort(int a[], int size, int k){
+
+		int c[k]; // store the frequency of elements in array a.
+		int b[size]; // store the sorted output for array a.
+		int i,j;
+
+		// initializing array c.
+		for (i=0; i< k; i++)
+			c[i]=0;
+
+		// storing the frequency of each element in array a into c.
+		for(i=1; i< size; i++)
+			c[a[i]] = c[a[i]]+1;
+
+		// storing the rank for each element.
+		for(i=1; i< k; i++)
+			c[i] = c[i] + c[i-1];
+
+		// updating the array b with sorted list of elements.
+		for(j=size-1; j>0; j--){
+			b[c[a[j]]] = a[j];
+			c[a[j]] = c[a[j]]-1;
+		}
+
+		// print the output array.
+		for(i=1; i< size; i++)
+			cout<< b[i]<<" ";
+
+	}
+
+	int main(){
+
+		int size,k,i;
+		cin>>size>>k;
+
+		int a[size];
+		for(i=1; i< size; i++)
+			cin>>a[i];
+
+		countingsort(a,size,k);
+
+		return 0;
+	}
+</pre>
+<h3>Code Virtualization</h3>
+<iframe style=" width:100%; height:600px;" frameborder="1" src="http://pythontutor.com/iframe-embed.html#code=class%20counting_sort%28object%29%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20time%20complexity%20of%20counting%20sort%20is%20O%28n%2Bk%29%0A%20%20%20%20sapce%20complexity%20of%20counting%20sort%20is%20O%28k%29%0A%20%20%20%20%22%22%22%0A%20%20%20%20def%20countingsort%28self,a,size,k%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%20%5B%5D%20%23%20stores%20the%20number%20of%20occurance%20of%20an%20element%20in%20array%0A%20%20%20%20%20%20%20%20b%20%3D%20%5B%5D%20%23%20output%20array%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%23%20initializing%20array%20c%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20c.append%280%29%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20b.append%280%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%23%20storing%20the%20frequency%20of%20each%20element%20in%20array%20a%20into%20c.%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%281,size%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20c%5Ba%5Bi%5D%5D%20%3D%20c%5Ba%5Bi%5D%5D%20%2B%201%0A%0A%20%20%20%20%20%20%20%20%23%20storing%20the%20rank%20for%20each%20element%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%281,k%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20c%5Bi%5D%20%2B%3D%20c%5Bi-1%5D%0A%0A%20%20%20%20%20%20%20%20%23%20updating%20the%20array%20b%20with%20sorted%20list%20of%20the%20elements%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28size-1,0,-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20b%5Bc%5Ba%5Bj%5D%5D%5D%20%3D%20a%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20c%5Ba%5Bj%5D%5D%20%3D%20c%5Ba%5Bj%5D%5D-1%0A%0A%20%20%20%20%20%20%20%20%23%20print%20the%20output%20array%0A%20%20%20%20%20%20%20%20print%28%22list%20after%20sorting%20is%3A%20%22,b%5B1%3A%5D%29%0A%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20k%20%3D%205%0A%20%20%20%20%20%20%20%20a%3D%5B0,5,0,2,1,5,2,1,5,1,4%5D%0A%20%20%20%20%20%20%20%20print%28%22list%20to%20be%20sorted%20is%3A%20%22,a%5B1%3A%5D%29%0A%20%20%20%20%20%20%20%20self.countingsort%28a,len%28a%29,k%2B1%29%0A%0Ac%20%3D%20counting_sort%28%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+{% endblock %}

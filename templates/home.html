@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block header %}
+<header>
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="hero">
+		<h1>Add logic to your code</h1>
+		<a href="Get help with code" class="btn">Get help with code</a>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<section class="main">
+	<aside>
+		<div class="content trending">
+			<h3><a href="#">What&apos;s trending</a></h3>
+			<p>Know about the technologies trending in market. <a href="http://coderecipesonline.pythonanywhere.com">Technologies</a> for web development, new languages and many other technologies for being a cut above others.</p>
+		</div>
+	</aside>
+	<aside>
+		<div class="content interview_tips">
+			<h3><a href="#">Coding interview tips</a></h3>
+			<p>How to approch coding interview questions? What topics to expect questions from? How should be your resume for job you apply?</p>
+			</div>
+	</aside>
+	<aside>
+		<div class="content Find-what-you-need">
+			<h3><a href="#">Find what you need</a></h3>
+			<p>Get the basics of coding. Learn various algoriths and data structures for your software career. Find what you need or request for one so that others can help you out.</p>
+		</div>
+	</aside>
+</section>
+<section class="visualize">
+	<article>
+		<h2>Visualize the code at run time</h2>
+		<p>Code visualization help to understand the code better, find errors in the code. Run your code to find out what happens at execution. This is a service provided by using the open source project pythontutor.com</p>
+		<a href="http://www.pythontutor.com/visualize.html#code=&cumulative=false&heapPrimitives=false&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" title="Visualize code" class="btn">Visualize code</a>
+	</article>
+</section>
+<section class="how-to">
+	<aside>
+		<div class="content">
+			<img src="{{url_for('static', filename='images/student.jpg')}}" alt="Where to start from">
+			<h4>For Beginners</h4>
+		 	<p>Beginner? Don't worry we got you covered. We have list of coding skills and technologies you can start with.</p>
+		 	<a href="#" title="Learn how to solve a coding prblem">Learn more</a>
+		</div>
+	</aside>
+	<aside>
+		<div class="content">
+			<img src="{{url_for('static', filename='images/help.jpg')}}" alt="Ask for help">
+			<h4>It's good to take help when stuck</h4>
+			<p>We have a good community of developers who can help you out when stuck. Learning is a mutual proce of growth for a group and not individ	ual.</p>
+           	<a title="Learn how to choose the proper lighting." href="http://codifydesign.com">Learn more</a>
+		</div>
+	</aside>
+	<blockquote>
+        <p class="quote">Any code of your own that you haven’t looked at for six or more months might as well have been written by someone else.</p>
+        <p class="credit"><strong>Eagleson’s Law</strong>
+        <br><em>of Software Engineering</em>
+        <br>Company</p>
+    </blockquote>
+</section>
+{% endblock %}

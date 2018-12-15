@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1>Welcome to Kitchen</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>Our Mission</h2>
+<p>This website is created for the users who are craving to learn and grow. Here you would get facility to have some delicious recipes of programming algorithms and techniques.</p><br>
+<h2>How to use this website?</h2>
+<p>You can use this website as "cookbook" for algorithms and data structures, you may someday encounter a problem for which you cannot find a published algorithm.This website will help you design and analyze algorithms on you own.</p><br>
+<h2>Contact us</h2>
+<form method="POST">
+	<table>
+		<tr>
+			<td><label>Email-id  :</label></td>
+			<td><input type="text" name="email"></td>
+		</tr>
+		<tr>
+			<td><label>comment:</label></td>
+			<td><textarea name="comment" cols="10" rows="3" style="height:150px; width:400px;"></textarea></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="submit"></td>
+		</tr>	
+	</table>
+</form>
+{% endblock %}

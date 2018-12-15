@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1>Data Structures</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>What are data structures?</h2>
+<p>A data structutre is a way to store and organize data in order to facilitate access and modifications.No single data structure works well for all the purpose, and so it is important to know the strengths and limitations of several of them.</p><br>
+<h2>Types of Data Structures</h2>
+<p>Data structures can be categorized into two types: built-in data structures and user defined data structures. Built-in data structures are <strong>integer</strong>, <strong>float</strong>, <strong>character</strong>, <strong>pointers</strong>. Where as user defined data structures are : <strong>arrays</strong>,<strong>queues</strong>,<strong>linked list</strong>, <strong>trees</strong>, <strong>graphs</strong>.</p>
+<p>Operations that can be performed on data structures are: insertion, deletion, searching.</p>
+<br>
+<h2>Table of Contents</h2>
+<section id="table_ds">
+<div class="table_content">
+<ol>
+	<li><a href="#">User defined data structures</a>
+		<ul>
+			<li><a href="{{url_for('stack')}}">Stacks</a></li>
+			<li><a href="{{url_for('queue')}}">Queues</a></li>
+			<li><a href="#">Binary trees</a></li>
+			<li><a href="#">Hashtables</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Java collections API</a>
+		<ul>
+			<li><a href="#">Arraylist</a></li>
+			<li><a href="#">Linked list</a></li>
+			<li><a href="#">Priority Queues</a></li>
+			<li><a href="#">Stacks,Vectors</a></li>
+			<li><a href="#">Tree map</a></li>
+			<li><a href="#">Sets, Hashset, Treeset</a></li>
+		</ul>
+	</li>
+</ol>
+</div>
+</section>
+<br>
+<h2>Suggested readings and courses:</h3>
+<h3>Books:</h3>
+<ul>
+	<li><a href="https://www.amazon.in/Introduction-Algorithms-3Ed-International-Cormen/dp/0262533057/ref=sr_1_3?ie=UTF8&qid=1514056576&sr=8-3&keywords=introduction+to+algorithms">Introduction to Algorithms</a> by Thomas H.Cormen, Charles E.Leiserson, Ronald L.Rivest and Clifford Stein</li>
+	<li><a href="https://www.amazon.in/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/ref=sr_1_1?s=books&ie=UTF8&qid=1514056666&sr=1-1&keywords=cracking+the+coding+interview">Cracking the coding Interview</a> by Gayle Laakmann</li>
+</ul>
+<h3>Courses:</h3>
+<ul>
+	<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011">MIT 6.006</a>  Introduction to algorithms, Fall 2011</li>
+	<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015">MIT 6.046J</a> Design and Analysis of Algorithms</li>
+	<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012">MIT 6.851</a>  Advanced Data Structures, Spring 2012</li>
+</ul>
+{% endblock %}

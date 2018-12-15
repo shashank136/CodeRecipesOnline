@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1>Insertion Sort</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>What is insertion sort?</h2>
+<p>Insertion sort is an efficient algorithm for sorting a small number of elements. Insertion sort works the way many people sort a hand of playing cards.We start with an empty left hand and cards face down on the table. We then remove one card at a time from the table and insert it into the correct position in the left hand. To find the correct postion for the card, we compare it with each of the cards already in the hand,  from right to left. At all times cards held in left hand are sorted.</p>
+<img class="insertion" src="{{url_for('static', filename='images/insertion_sort.png')}}">
+<br>
+<p>
+	<h3>Other Example:</h3>
+	<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif" alt="Loading" border="1">
+</p>
+<br>
+<h3>Python code for insertion sort</h3>
+<pre class="prettyprint linenums">
+	def insertion_sort(a):
+	"""
+	Here a is list which needs to be sorted using insertion sort
+	time complexity of insertion sort is O(n^2)
+	space complexity of insertion sort is O(1)
+	"""
+		temp = 0
+
+		for i in a:
+			temp = i
+			for j in range(a.index(i),0,-1):
+				if a[j] < a[j-1]:
+					a[j] = a[j-1]
+					a[j-1] = temp
+
+		return a
+
+	a = [5,2,4,6,1,3]
+	insertion_sort(a)
+
+	print("list after sorting is ")
+	print(a)
+</pre>
+<h3>java code for insertion sort</h3>
+<pre class="prettyprint linenums">
+	import java.util.*;
+	import java.io.*;
+
+	public class insertion_sort
+	{
+    	public static void main(String[] args)
+    	{
+        	Scanner sc = new Scanner(System.in);
+        	int size, i, j=0, temp=0;
+        	size = sc.nextInt();
+        	int a[] = new int[size];
+
+        	// reading the array elements
+        	for(i = 0; i < size; i++)
+        	{
+            	a[i] = sc.nextInt();
+	        }
+
+    	    // insertion sort code
+        	// in-place sorting technique
+	        for(i = 1; i < size; i++)
+        	{
+        		temp = a[i];
+            	for (j = i; j > 0; j--)
+            	{
+            		if (a[j] < a[j-1]) {
+            			a[j]=a[j-1];
+            			a[j-1]=temp;
+	            	}
+
+    	        }
+        	}
+
+	        // displaying the new sorted array
+    	    for(i = 0; i < size; i++)
+        	{
+            	System.out.print(a[i]+", ");
+        	}
+
+    	}
+	}
+</pre>
+<h3>C++ code for insertion sort</h3>
+<pre class="prettyprint linenums">
+	#include < iostream >
+	using namespace std;
+
+	int main(){
+		int size,temp=0,i=0,j=0;
+		cin>>size;	// read the size of array
+		int a[size];
+
+		// reading the elements
+		for(i=0;i < size;i++){
+			cin>>a[i];
+		}
+
+		// insertion sort
+		for(i=1;i < size;i++){
+			temp=a[i];
+			for(j=i;j>0;j--){
+				if(a[j] < a[j-1]){
+					a[j]=a[j-1];
+					a[j-1]=temp;
+				}
+			}
+		}
+
+		// displaying the elements in the array.
+		for(i=0;i < size;i++){
+			cout<< a[i]<<", ";
+		}
+
+		return 0;
+	}
+</pre>
+<h3>Code Virtualization</h3>
+<iframe style=" width:100%; height:600px;" frameborder="1" src="http://pythontutor.com/iframe-embed.html#code=def%20insertion_sort%28a%29%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Here%20a%20is%20list%20which%20needs%20to%20be%20sorted%20using%20insertion%20sort%0A%20%20%20%20time%20complexity%20of%20insertion%20sort%20is%20O%28n%5E2%29%0A%20%20%20%20space%20complexity%20of%20insertion%20sort%20is%20O%281%29%0A%20%20%20%20%22%22%22%0A%20%20%20%20temp%20%3D%200%0A%20%20%20%20%0A%20%20%20%20for%20i%20in%20a%3A%0A%20%20%20%20%20%20%20%20temp%20%3D%20i%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28a.index%28i%29,0,-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20a%5Bj%5D%20%3C%20a%5Bj-1%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20a%5Bj%5D%20%3D%20a%5Bj-1%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20a%5Bj-1%5D%20%3D%20temp%0A%0A%20%20%20%20return%20a%0A%0Aa%20%3D%20%5B5,2,4,6,1,3%5D%0Ainsertion_sort%28a%29%0A%0Aprint%28%22list%20after%20sorting%20is%20%22%29%0Aprint%28a%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+{% endblock %}

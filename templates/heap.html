@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1>Heap Sort</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>What is heap sort?</h2>
+<p>The (binary) heap data structure is an array object that can be viewed as a nearly complete binary tree. Each node of the tree corresponds to an element of the array that stores the value in the node. The tree is completely filled on all levels except possibly the lowest, which is filled from the left up to a point. The time complexity of heap sort is O(nlogn) and space complexity is O(1).</p>
+<img style="width:100%;" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Binary_heap_bottomup_vs_topdown.svg">
+<br>
+<p>
+	<h3>Other Example:</h3>
+	<img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif" alt="Loading" border="1">
+</p>
+<br>
+<h3>Python code for heap sort</h3>
+<pre class="prettyprint linenums">
+	class Heapsort(object):
+		"""
+		This is the implementation of max heap.
+		Heap sort is an in-place sorting technique
+		time complexity of heap sort is O(nlogn)
+		space complexity of heap sort is O(1)
+		"""
+		def heapify(self,a,n,i):
+			largest = i # index of parent node
+			l = 2*i+1 # index of left child
+			r = 2*i+2 # index of right child
+
+			#  if left child is larger then root
+			if l<n and a[l]>a[largest]:
+				largest=l
+
+			# if right child is larger then largest so far
+			if r<n and a[r]>a[largest]:
+				largest=r
+
+			# is largest is not root
+			if largest != i:
+				(a[i],a[largest])=(a[largest],a[i])
+				self.heapify(a,n,largest)
+
+		def heapsort(self,a,n):
+			# n//2-1 gives the count of root plus internal nodes excluding leaf nodes
+			for i in range((n//2)-1,-1,-1):
+				self.heapify(a,n,i) # starting from the last parent
+			for i in range(n-1,-1,-1):
+				(a[i],a[0]) = (a[0],a[i])
+				self.heapify(a,i,0)
+
+		def printArray(self,a):
+			return a
+
+		def __init__(self):
+			a = [13,20,7,2,17]
+			print("list before sorting: ",a)
+			self.heapsort(a,len(a))
+			print("list after sorting: ",self.printArray(a))
+
+	h = Heapsort()
+</pre>
+<h3>C++ code for heap sort</h3>
+<pre class="prettyprint linenums">
+	// C++ program for implementation of Heap Sort
+	#include <iostream>
+	using namespace std;
+
+	// To heapify a subtree rooted with node i which is
+	// an index in arr[]. n is size of heap
+	void heapify(int arr[], int n, int i)
+	{
+	    int largest = i;  // Initialize largest as root
+	    int l = 2*i + 1;  // left = 2*i + 1
+	    int r = 2*i + 2;  // right = 2*i + 2
+
+	    // If left child is larger than root
+	    if (l < n &amp;&amp; arr[l] > arr[largest])
+	        largest = l;
+
+	    // If right child is larger than largest so far
+	    if (r < n &amp;&amp; arr[r] > arr[largest])
+	        largest = r;
+
+	    // If largest is not root
+	    if (largest != i)
+	    {
+	        swap(arr[i], arr[largest]);
+
+	        // Recursively heapify the affected sub-tree
+	        heapify(arr, n, largest);
+	    }
+	}
+
+	// main function to do heap sort
+	void heapSort(int arr[], int n)
+	{
+	    // Build heap (rearrange array)
+	    for (int i = n / 2 - 1; i >= 0; i--)
+	        heapify(arr, n, i);
+
+	    // One by one extract an element from heap
+	    for (int i=n-1; i>=0; i--)
+	    {
+	        // Move current root to end
+	        swap(arr[0], arr[i]);
+
+	        // call max heapify on the reduced heap
+	        heapify(arr, i, 0);
+	    }
+	}
+
+	/* A utility function to print array of size n */
+	void printArray(int arr[], int n)
+	{
+	    for (int i=0; i< n; ++i)
+	        cout << arr[i] << " ";
+	    cout << "\n";
+	}
+
+	// Driver program
+	int main()
+	{
+	    int arr[] = {12, 11, 13, 5, 6, 7};
+	    int n = sizeof(arr)/sizeof(arr[0]);
+
+	    heapSort(arr, n);
+
+	    cout << "Sorted array is \n";
+	    printArray(arr, n);
+	}
+</pre>
+<h3>Code Virtualization</h3>
+<iframe style=" width:100%; height:600px;" frameborder="1" src="http://pythontutor.com/iframe-embed.html#code=class%20Heapsort%28object%29%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20This%20is%20the%20implementation%20of%20max%20heap.%0A%20%20%20%20Heap%20sort%20is%20an%20in-place%20sorting%20technique%0A%20%20%20%20time%20complexity%20of%20heap%20sort%20is%20O%28nlogn%29%0A%20%20%20%20space%20complexity%20of%20heap%20sort%20is%20O%281%29%0A%20%20%20%20%22%22%22%0A%20%20%20%20def%20heapify%28self,a,n,i%29%3A%0A%20%20%20%20%20%20%20%20largest%20%3D%20i%20%23%20index%20of%20parent%20node%0A%20%20%20%20%20%20%20%20l%20%3D%202*i%2B1%20%23%20index%20of%20left%20child%0A%20%20%20%20%20%20%20%20r%20%3D%202*i%2B2%20%23%20index%20of%20right%20child%0A%0A%20%20%20%20%20%20%20%20%23%20%20if%20left%20child%20is%20larger%20then%20root%0A%20%20%20%20%20%20%20%20if%20l%3Cn%20and%20a%5Bl%5D%3Ea%5Blargest%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20largest%3Dl%0A%0A%20%20%20%20%20%20%20%20%23%20if%20right%20child%20is%20larger%20then%20largest%20so%20far%20%20%20%20%0A%20%20%20%20%20%20%20%20if%20r%3Cn%20and%20a%5Br%5D%3Ea%5Blargest%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20largest%3Dr%0A%0A%20%20%20%20%20%20%20%20%23%20is%20largest%20is%20not%20root%20%20%20%20%0A%20%20%20%20%20%20%20%20if%20largest%20!%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%28a%5Bi%5D,a%5Blargest%5D%29%3D%28a%5Blargest%5D,a%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.heapify%28a,n,largest%29%0A%0A%20%20%20%20def%20heapsort%28self,a,n%29%3A%0A%20%20%20%20%20%20%20%20%23%20n//2-1%20gives%20the%20count%20of%20root%20plus%20internal%20nodes%20excluding%20leaf%20nodes%20%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28%28n//2%29-1,-1,-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.heapify%28a,n,i%29%20%23%20starting%20from%20the%20last%20parent%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28n-1,-1,-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%28a%5Bi%5D,a%5B0%5D%29%20%3D%20%28a%5B0%5D,a%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.heapify%28a,i,0%29%0A%0A%20%20%20%20def%20printArray%28self,a%29%3A%0A%20%20%20%20%20%20%20%20return%20a%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20%5B13,20,7,2,17%5D%0A%20%20%20%20%20%20%20%20print%28%22list%20before%20sorting%3A%20%22,a%29%0A%20%20%20%20%20%20%20%20self.heapsort%28a,len%28a%29%29%0A%20%20%20%20%20%20%20%20print%28%22list%20after%20sorting%3A%20%22,self.printArray%28a%29%29%0A%0Ah%20%3D%20Heapsort%28%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+{% endblock %}

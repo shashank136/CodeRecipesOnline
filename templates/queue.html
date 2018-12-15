@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1>Queue Data Structure</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>What is a queue?</h2>
+<p>Queues are dynamic sets in which the element removed from the set by the DELETE operation is prespecified. In a queue, the element deleted is always the one that has been in the set for the longest time: the queue implements a first-in, first-out, or FIFO, policy.</p>
+<p>We call the INSERT operation on a queue ENQUEUE, and we call the DELETE
+operation DEQUEUE;</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Data_Queue.svg">
+<br>
+<h3>Python code for queues</h3>
+<pre class="prettyprint linenums">
+	class queues(object):
+		"""
+		implementation of queues using python list
+		"""
+		def enqueue(self,queue,front,back,num,MAX):
+			if back == MAX-1:
+				print("queue is full")
+				return front,back
+			else:
+				back += 1
+				queue.insert(back,num)
+				if front == -1:
+					front += 1
+				return front,back
+
+		def dequeue(self,queue,front,back,MAX):
+			if front == -1:
+				print("queue is empty")
+				return front,back
+			else:
+				print(queue[front])
+				front += 1
+				if front > back and back == MAX-1:
+					front = -1
+					back = -1
+				return front,back
+
+		def __init__(self,front=-1,back=-1):
+			# Assuming queue of size 5
+			self.front = front
+			self.back = back
+			MAX = 5
+			queue = []
+			front,back = self.enqueue(queue,front,back,2,MAX)
+			front,back = self.enqueue(queue,front,back,3,MAX)
+			front,back = self.enqueue(queue,front,back,5,MAX)
+			front,back = self.enqueue(queue,front,back,9,MAX)
+			front,back = self.dequeue(queue,front,back,MAX)
+			front,back = self.dequeue(queue,front,back,MAX)
+			front,back = self.dequeue(queue,front,back,MAX)
+
+	if __name__ == "__main__":
+		q = queues()
+</pre>
+<h3>C++ code for queues</h3>
+<pre class="prettyprint linenums">
+	// implementation of queues using arrays.
+	#include< iostream>
+	#include< stdlib.h>
+	# define MAX 6
+	using namespace std;
+
+	class queue{
+		private:
+			int front,back;
+			int a[MAX];
+
+		public:
+			queue(){
+				front=-1;
+				back=-1;
+			}
+
+			void enqueue(int x){
+				if(back==MAX-1)
+					cout<<"Queue is full";
+				else{
+					back++;
+					a[back]=x;
+
+					if(front==-1)
+						front++;
+				}
+			}
+
+			int dequeue(){
+				if(front==-1){
+					cout<<"Queue is empty.";
+					return NULL;
+				}
+				else{
+					int y = a[front];
+					front++;
+
+					if(front>back &amp;&amp; back==MAX-1){
+						front=-1;
+						back=-1;
+					}
+					return y;
+				}
+			}
+	};
+
+	int main(){
+
+		queue q;
+		int k;
+
+		while(true){
+			cout<< endl<< "Enter your choice:"<< endl;
+			cout<<"1. Enqueu"<< endl;
+			cout<<"2. Deque"<< endl;
+			cout<<"3. EXIT"<< endl;
+			cin>>k;
+			switch(k){
+				case 1: {int x; cin>>x; q.enqueue(x);break;}
+				case 2: {int y = q.dequeue(); cout<< endl<< y<< endl; break;}
+				case 3: exit(1);break;
+				default: cout<<"Enter valid choice"<< endl;break;
+			}
+		}
+
+		return 0;
+	}
+</pre>
+<h3>Code Virtualization</h3>
+<iframe style=" width:100%; height:600px;" frameborder="1" src="http://pythontutor.com/iframe-embed.html#code=class%20queues%28object%29%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20implementation%20of%20queues%20using%20python%20list%0A%20%20%20%20%22%22%22%0A%20%20%20%20def%20enqueue%28self,queue,front,back,num,MAX%29%3A%0A%20%20%20%20%20%20%20%20if%20back%20%3D%3D%20MAX-1%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22queue%20is%20full%22%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20front,back%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20back%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20queue.insert%28back,num%29%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20front%20%3D%3D%20-1%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20front%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20front,back%0A%0A%20%20%20%20def%20dequeue%28self,queue,front,back,MAX%29%3A%0A%20%20%20%20%20%20%20%20if%20front%20%3D%3D%20-1%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22queue%20is%20empty%22%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20front,back%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28queue%5Bfront%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20front%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20front%20%3E%20back%20and%20back%20%3D%3D%20MAX-1%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20front%20%3D%20-1%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20back%20%3D%20-1%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20front,back%0A%0A%20%20%20%20def%20__init__%28self,front%3D-1,back%3D-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20Assuming%20queue%20of%20size%205%0A%20%20%20%20%20%20%20%20self.front%20%3D%20front%0A%20%20%20%20%20%20%20%20self.back%20%3D%20back%0A%20%20%20%20%20%20%20%20MAX%20%3D%205%0A%20%20%20%20%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20front,back%20%3D%20self.enqueue%28queue,front,back,2,MAX%29%0A%20%20%20%20%20%20%20%20front,back%20%3D%20self.enqueue%28queue,front,back,3,MAX%29%0A%20%20%20%20%20%20%20%20front,back%20%3D%20self.enqueue%28queue,front,back,5,MAX%29%0A%20%20%20%20%20%20%20%20front,back%20%3D%20self.enqueue%28queue,front,back,9,MAX%29%0A%20%20%20%20%20%20%20%20front,back%20%3D%20self.dequeue%28queue,front,back,MAX%29%0A%20%20%20%20%20%20%20%20front,back%20%3D%20self.dequeue%28queue,front,back,MAX%29%0A%20%20%20%20%20%20%20%20front,back%20%3D%20self.dequeue%28queue,front,back,MAX%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20q%20%3D%20queues%28%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+{% endblock %}

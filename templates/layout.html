@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>Code Recipes Online</title>
+	    <link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static', filename='styles/screen.css')}}">
+	    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+	    <meta name="google-site-verification" content="nmrvpOYQ62lPMN7FyAsdOUCIQ60vpvv4OWASlkto_sA" />
+	    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112030166-1"></script>
+        <script>
+         window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-112030166-1');
+        </script>
+
+	</head>
+
+	<body>
+		<div id="page">
+			{% block header %}
+			{% endblock %}
+			{% block content %}
+			{% endblock %}
+			<nav>
+				<ul>
+					<li>
+						<a href="{{url_for('about')}}" title="About">About</a>
+					</li>
+					<li>
+						<a href="#" title="Blog">Blog</a>
+					</li>
+					<li>
+						<a href="{{url_for('algo_ds')}}" title="Algorithms & Datastructure" aria-haspopup="true">Algorithms &amp; Datastructure</a>
+						<ul>
+							<li>
+								<a href="{{url_for('algorithms')}}" title="Algorithms" aria-haspopup="true">Algorithms</a>
+								<ul>
+									<li><a href="{{url_for('.algorithms', _anchor='table_algorithms')}}" title="Sorting Algorithms">Sorting Algorithms</a></li>
+									<li><a href="{{url_for('.algorithms', _anchor='table_algorithms')}}" title="Dynamic programming">Dynamic Programming</a></li>
+									<li><a href="{{url_for('.algorithms', _anchor='table_algorithms')}}" title="Greedy Algorithm">Greedy Technique</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="{{url_for('ds')}}" title="Data structure" aria-haspopup="true">Data structure</a>
+								<ul>
+									<li><a href="{{url_for('.ds', _anchor='table_ds')}}" title="User Defined DS">User defined DS</a></li>
+									<li><a href="{{url_for('.ds', _anchor='table_ds')}}" title="Java Collections">Java Collections API</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" title="Interview-tips">Interview Tips</a>
+					</li>
+				</ul>
+			</nav>
+			<footer>
+	            &copy; Code Recipes Online
+	            <div class="content">
+	                <a href="#" title="Privacy Policy">Privacy Policy</a>
+	                <a href="#" title="Terms of Services">Terms of Services</a>
+	            </div>
+        	</footer>
+		</div>
+	</body>
+</html>

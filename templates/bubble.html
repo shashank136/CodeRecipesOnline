@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+{% block header %}
+<header class="next">
+	<a href="http://coderecipesonline.pythonanywhere.com" class="logo" title="CodeRecipesOnline"><span>Code Recipes Online</span></a>
+	<div class="villain">
+		<h1>Bubble Sort</h1>
+	</div>
+</header>
+{% endblock %}
+{% block content %}
+<br>
+<h2>What is bubble sort?</h2>
+<p>Bubble sort is sorting techniques which compares to adjacent elements and swap them if required to sort.This sorting technique is useful for list of small size as the number of iterations keeps on increasing with increase in elements. Bubble sort has worst-case and average complexity both О(n2).</p>
+<p>
+Let us take the array of numbers "5 1 4 2 8", and sort the array from lowest number to greatest number using bubble sort. In each step, elements written in bold are being compared. Three passes will be required.
+<pre>
+<code>
+First Pass
+( 5 1 4 2 8 ) -->  ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1.
+( 1 5 4 2 8 ) -->  ( 1 4 5 2 8 ), Swap since 5 > 4
+( 1 4 5 2 8 ) -->  ( 1 4 2 5 8 ), Swap since 5 > 2
+( 1 4 2 5 8 ) -->  ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
+
+Second Pass
+( 1 4 2 5 8 ) -->  ( 1 4 2 5 8 )
+( 1 4 2 5 8 ) -->  ( 1 2 4 5 8 ), Swap since 4 > 2
+( 1 2 4 5 8 ) -->  ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) -->  ( 1 2 4 5 8 )
+Now, the array is already sorted, but the algorithm does not know if it is completed.
+The algorithm needs one whole pass without any swap to know it is sorted.
+
+Third Pass
+( 1 2 4 5 8 ) -->  ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) -->  ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) -->  ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) -->  ( 1 2 4 5 8 )
+</code>
+</pre>
+</p>
+<p>
+	<h3>Other example of list: [6, 5, 3, 1, 8, 7, 2, 4]</h3>
+	<img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif" alt="Loading" title="Loading" border="1"/>
+</p>
+<br>
+<h3>Python code for bubble sort</h3>
+<pre class="prettyprint linenums">
+	class Bubblesort(object):
+		"""
+		It's an inplace sorting algorithm
+		time complexity of bubble sort is O(n^2)
+		space complexity of bubble sort is O(1)
+		"""
+		def __init__(self):
+			n = int(input("enter the number of elements: "))
+			a = []
+			for i in range(n):
+				a.append(int(input("enter the number: ")))
+			print("list to be sorted: ",a)
+			self.bubble_sort(a)
+			self.print_list(a)
+
+		def bubble_sort(self,a):
+			for j in range(len(a)-1,2,-1):
+				for i in range(0,j):
+					if a[i] > a[i+1]:
+						(a[i],a[i+1]) = (a[i+1],a[i])
+
+		def print_list(self,a):
+			print("list after sorting: ",a)
+
+	item = Bubblesort(
+</pre>
+<h3>java code for bubble sort</h3>
+<pre class="prettyprint linenums">
+	import java.util.*;
+	import java.io.*;
+
+	public class bubble_sort
+	{
+	    public static void main(String[] args)
+	    {
+	        Scanner sc = new Scanner(System.in);
+	        int size, i, j;
+	        size = sc.nextInt();
+
+	        int a[] = new int[size];
+
+	        for(i = 0; i < size; i++)
+	        {
+	            a[i] = sc.nextInt();
+	        }
+
+	        // bubble sorting start:
+	        j=size-1;
+	        while(j>=3){
+	        	for (i=0; i< j; i++) {
+	        		if(a[i]>a[i+1]){ // 2,3
+	        			a[i]=a[i]+a[i+1]; // 1:5
+	        			a[i+1]=a[i]-a[i+1]; // 2:(5-3)=2
+	        			a[i]=a[i]-a[i+1];	// 1:(5-2)=3
+	        		}
+	        	}
+	        	--j;
+	        }
+
+	        for(i=0;i< size;i++){
+	        	System.out.print(a[i]+" ");
+	        }
+	    }
+	}
+</pre>
+<h3>C++ code for bubble sort</h3>
+<pre class="prettyprint linenums">
+	#include<iostream>
+	using namespace std;
+
+	int main(){
+		int size,i,j;
+		cin>>size;
+
+		int a[size];
+
+		for(i=0;i< size;i++)
+			cin>>a[i];
+
+		j=size-1;
+
+		while(j>=3){
+			for(i=0;i< j;i++){
+				if(a[i]>a[i+1]){
+					a[i]=a[i]+a[i+1];
+					a[i+1]=a[i]-a[i+1];
+					a[i]=a[i]-a[i+1];
+				}
+			}
+			j--;
+		}
+
+		for(i=0;i< size;i++)
+			cout<< a[i]<<" ";
+
+		return 0;
+	}
+</pre>
+<h3>Code Virtualization</h3>
+<iframe style=" width:100%; height:600px;" frameborder="1" src="http://pythontutor.com/iframe-embed.html#code=class%20Bubblesort%28object%29%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20It's%20an%20inplace%20sorting%20algorithm%0A%20%20%20%20time%20complexity%20of%20bubble%20sort%20is%20O%28n%5E2%29%0A%20%20%20%20space%20complexity%20of%20bubble%20sort%20is%20O%281%29%0A%20%20%20%20%22%22%22%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20n%20%3D%205%0A%20%20%20%20%20%20%20%20a%20%3D%20%5B6,5,3,1,8%5D%0A%20%20%20%20%20%20%20%20self.bubble_sort%28a%29%0A%20%20%20%20%20%20%20%20self.print_list%28a%29%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20def%20bubble_sort%28self,a%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28len%28a%29-1,1,-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20i%20in%20range%280,j%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20a%5Bi%5D%20%3E%20a%5Bi%2B1%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%28a%5Bi%5D,a%5Bi%2B1%5D%29%20%3D%20%28a%5Bi%2B1%5D,a%5Bi%5D%29%0A%0A%20%20%20%20def%20print_list%28self,a%29%3A%0A%20%20%20%20%20%20%20%20print%28%22list%20after%20sorting%3A%20%22,a%29%0A%0Aitem%20%3D%20Bubblesort%28%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+{% endblock %}
